@@ -86,14 +86,14 @@ function uploadService(opts) {
         }).on('file', function(name, file) {
             var fileInfo = map[FileInfo.getFileKey(file.path)];
             fileInfo.update(file);
-            if (!fileInfo.validate()) {
-                finish(fileInfo.error);
-                fs.unlink(file.path);
-                return;
-            }
-
-            transporter.post(fileInfo, file, finish);
-
+            fileInfo.validate(function(err, isValid) {
+                if(!isValid) {
+                    finish(fileInfo.error);
+                    fs.unlink(file.path);
+                    return;
+                }
+                transporter.post(fileInfo, file, finish);
+            })
         }).on('aborted', function() {
             finish('aborted');
             tmpFiles.forEach(function(file) {

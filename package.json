@@ -11,7 +11,8 @@
     "aws-sdk": "^2.1.20",
     "formidable": "^1.0.17",
     "lwip": "~0.0.8",
-    "mkdirp": "0.5.0"
+    "mkdirp": "0.5.0",
+    "mmmagic": "^0.4.5"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
