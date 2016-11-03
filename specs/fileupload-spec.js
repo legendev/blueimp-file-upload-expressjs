@@ -10,6 +10,9 @@ describe('FileInfo package', function() {
   it('should check against certain rules');
 
   it('should check or create folders');
+
+  it('should check for proper mime type');
+
 });
 
 describe('AWS transport package', function() {
